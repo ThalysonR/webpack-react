@@ -12,7 +12,7 @@ export default class Component extends React.Component<Prop> {
         return(
             <div>
                 <h1>Nome: {this.props.nome}</h1>
-                <Button variant="container" color="primary" />
+                <Button variant="contained" color="primary" >Teste</Button>
             </div>
         )
     }
