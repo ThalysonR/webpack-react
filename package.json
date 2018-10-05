@@ -17,6 +17,7 @@
     "autoprefixer": "^9.1.5",
     "babel-loader": "^8.0.2",
     "css-loader": "^1.0.0",
+    "file": "^0.2.2",
     "flow-bin": "^0.81.0",
     "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.9.3",
@@ -37,6 +38,8 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.1.1",
-    "babel-plugin-react-css-modules": "^3.4.2"
+    "babel-plugin-react-css-modules": "^3.4.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
   }
 }
