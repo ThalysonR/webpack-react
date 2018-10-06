@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from './counterActions';
-import  Button from '@material-ui/core/Button';
-import  Input from '@material-ui/core/Input';
-import  FormControl from '@material-ui/core/FormControl';
+import {withRouter} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
+import FormControl from '@material-ui/core/FormControl';
 
 type Props = {
-    stepChanged: Function<void>,
-    dec: Function<void>,
-    inc: Function<void>,
-    incAsync: Function<void>,
-    counter: {step: number, number: number}
+    stepChanged: Function,
+    dec: Function,
+    inc: Function,
+    incAsync: Function,
+    counter: { step: number, number: number }
 }
 class Counter extends Component<Props> {
     render() {
@@ -23,6 +24,11 @@ class Counter extends Component<Props> {
                 <Button variant={'outlined'} color="primary" onClick={this.props.dec}>Dec</Button>
                 <Button variant={'outlined'} color="primary" onClick={this.props.inc}>Inc</Button>
                 <Button variant={'outlined'} color="primary" onClick={this.props.incAsync}>Inc Async</Button>
+                <div>
+                    <Button onClick={() => this.props.history.push('/form')} variant={'outlined'} color={'secondary'}>
+                        Form
+                    </Button>
+                </div>
             </div>
         )
     }
@@ -30,5 +36,5 @@ class Counter extends Component<Props> {
 
 export default connect(
     state => ({counter: state.counter}),
-    { ...actions }
-)(Counter)
+    {...actions}
+)(withRouter(Counter))
