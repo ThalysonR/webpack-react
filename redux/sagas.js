@@ -1,12 +1,12 @@
 import { delay } from 'redux-saga';
 import { call, takeEvery, all, put } from 'redux-saga/effects';
 
-function* incAsync() {
+export function* incAsync() {
     yield call(delay, 1000);
     yield put({ type: 'INC' })
 }
 
-function* watchIncAsync() {
+export function* watchIncAsync() {
     yield takeEvery('INC_ASYNC', incAsync);
 }
 

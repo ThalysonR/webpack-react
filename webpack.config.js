@@ -28,16 +28,16 @@ module.exports = {
                 use: [
                     {
                         loader: 'babel-loader',
-                        options: {
-                            plugins: [['react-css-modules', {
-                                "filetypes": {
-                                    ".scss": {
-                                        "syntax": "postcss-scss"
-                                    }
-                                }
-                            }], '@babel/plugin-transform-regenerator'],
-                            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-flow']
-                        },
+                        // options: {
+                        //     plugins: [['react-css-modules', {
+                        //         "filetypes": {
+                        //             ".scss": {
+                        //                 "syntax": "postcss-scss"
+                        //             }
+                        //         }
+                        //     }], '@babel/plugin-transform-regenerator'],
+                        //     presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-flow']
+                        // },
                     }
                 ]
             },

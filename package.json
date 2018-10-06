@@ -4,7 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --inline --hot --mode=development"
+    "dev": "webpack-dev-server --progress --colors --inline --hot --mode=development",
+    "test": "jest"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/reactTests/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/client/src/stylesheets/"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/legacy_notes_and_workbook/",
+      "<rootDir>/client/src/stylesheets/"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -16,10 +28,13 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.1.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.2",
     "css-loader": "^1.0.0",
     "file": "^0.2.2",
     "flow-bin": "^0.81.0",
+    "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.9.3",
     "postcss": "^7.0.2",
