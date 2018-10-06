@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {applyMiddleware, compose, createStore} from 'redux';
 import {Provider} from 'react-redux';
-import { Counter } from './Counter';
+import App from './app';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
 import reducers from './reducer';
@@ -19,6 +19,6 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <Provider store={store}>
-        <Counter/>
+        <App/>
     </Provider>
     ,document.getElementById('app'));
