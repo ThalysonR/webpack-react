@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'prod';
 
 module.exports = {
-    entry: './redux/index.jsx',
+    entry: ['@babel/polyfill', './redux/index.jsx'],
     output: {
         path: __dirname + '/public',
         filename: './bundle.js'
@@ -35,7 +35,7 @@ module.exports = {
                                         "syntax": "postcss-scss"
                                     }
                                 }
-                            }]],
+                            }], '@babel/plugin-transform-regenerator'],
                             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-flow']
                         },
                     }
