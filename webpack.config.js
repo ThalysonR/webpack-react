@@ -25,21 +25,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        // options: {
-                        //     plugins: [['react-css-modules', {
-                        //         "filetypes": {
-                        //             ".scss": {
-                        //                 "syntax": "postcss-scss"
-                        //             }
-                        //         }
-                        //     }], '@babel/plugin-transform-regenerator'],
-                        //     presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-flow']
-                        // },
-                    }
-                ]
+                use: ['babel-loader']
             },
             {
                 test: /\.(sa|sc|c)ss$/,

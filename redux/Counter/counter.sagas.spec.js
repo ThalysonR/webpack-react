@@ -1,7 +1,6 @@
-import { watchIncAsync } from './sagas';
-import { incAsync } from './sagas';
-import { put, call } from 'redux-saga/effects';
-import { delay } from 'redux-saga';
+import {incAsync} from './counter.sagas';
+import {call, put} from 'redux-saga/effects';
+import {delay} from 'redux-saga';
 
 test('incrementAsync Saga test', () => {
     const gen = incAsync();
