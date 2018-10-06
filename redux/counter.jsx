@@ -1,19 +1,34 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import * as actions from './counterActions';
-import { bindActionCreators } from 'redux';
+import  Button from '@material-ui/core/Button';
+import  Input from '@material-ui/core/Input';
+import  FormControl from '@material-ui/core/FormControl';
 
-const Counter = props => (
-    <div>
-        <h1>{props.counter.number}</h1>
-        <input type="number" onChange={props.stepChanged} value={props.counter.step}/>
-        <button onClick={props.dec}>Dec</button>
-        <button onClick={props.inc}>Inc</button>
-        <button onClick={props.incAsync}>Inc Async</button>
-    </div>
-);
+type Props = {
+    stepChanged: Function<void>,
+    dec: Function<void>,
+    inc: Function<void>,
+    incAsync: Function<void>,
+    counter: {step: number, number: number}
+}
+class Counter extends Component<Props> {
+    render() {
+        return (
+            <div>
+                <h1>{this.props.counter.number}</h1>
+                <FormControl>
+                    <Input type="number" onChange={this.props.stepChanged} value={this.props.counter.step}/>
+                </FormControl>
+                <Button variant={'outlined'} color="primary" onClick={this.props.dec}>Dec</Button>
+                <Button variant={'outlined'} color="primary" onClick={this.props.inc}>Inc</Button>
+                <Button variant={'outlined'} color="primary" onClick={this.props.incAsync}>Inc Async</Button>
+            </div>
+        )
+    }
+}
 
-const mapStateToProps = state =>  ({ counter: state.counter});
-const mapDispatcherToProps  = dispatch => bindActionCreators({...actions}, dispatch);
-
-export default connect(mapStateToProps, mapDispatcherToProps)(Counter);
+export default connect(
+    state => ({counter: state.counter}),
+    { ...actions }
+)(Counter)
