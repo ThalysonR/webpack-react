@@ -1,8 +1,8 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const devMode = process.env.NODE_ENV !== 'prod';
+const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-    entry: ['@babel/polyfill', './redux/index.jsx'],
+    entry: ['@babel/polyfill', './app/index.jsx'],
     output: {
         path: __dirname + '/public',
         filename: './bundle.js'

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from './counterActions';
 import {withRouter} from 'react-router-dom';
+import './counter.styles.scss';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
@@ -16,7 +17,7 @@ type Props = {
 class Counter extends Component<Props> {
     render() {
         return (
-            <div>
+            <div styleName="counter">
                 <h1>{this.props.counter.number}</h1>
                 <FormControl>
                     <Input type="number" onChange={this.props.stepChanged} value={this.props.counter.step}/>
