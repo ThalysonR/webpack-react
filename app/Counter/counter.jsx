@@ -6,6 +6,7 @@ import './counter.styles.scss';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
+import SearchIcon from '@material-ui/icons/Search'
 
 type Props = {
     stepChanged: Function,
@@ -29,6 +30,7 @@ class Counter extends Component<Props> {
                     <Button onClick={() => this.props.history.push('/form')} variant={'outlined'} color={'secondary'}>
                         Form
                     </Button>
+                    <SearchIcon/>
                 </div>
             </div>
         )

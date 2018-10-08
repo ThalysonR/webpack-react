@@ -1,6 +1,6 @@
 {
   "presets": [
-    "@babel/preset-env",
+    ["@babel/preset-env"],
     "@babel/preset-react",
     "@babel/preset-flow"
   ],
@@ -10,5 +10,5 @@
         "syntax": "postcss-scss"
       }
     }
-  }], "@babel/plugin-transform-regenerator"]
+  }], "@babel/plugin-transform-regenerator", "@babel/plugin-syntax-export-default-from", "@babel/plugin-proposal-class-properties"]
 }
