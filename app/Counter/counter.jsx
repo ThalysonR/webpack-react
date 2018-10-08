@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from './counterActions';
 import {withRouter} from 'react-router-dom';
+import {getCounterState} from "./counter.selectors";
 import './counter.styles.scss';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
@@ -30,7 +31,9 @@ class Counter extends Component<Props> {
                     <Button onClick={() => this.props.history.push('/form')} variant={'outlined'} color={'secondary'}>
                         Form
                     </Button>
-                    <SearchIcon/>
+                    <Button size={'small'}>
+                        <SearchIcon/>
+                    </Button>
                 </div>
             </div>
         )
@@ -38,6 +41,6 @@ class Counter extends Component<Props> {
 }
 
 export default connect(
-    state => ({counter: state.counter}),
+    state => ({counter: getCounterState(state)}),
     {...actions}
 )(withRouter(Counter))
