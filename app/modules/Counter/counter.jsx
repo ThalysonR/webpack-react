@@ -24,7 +24,7 @@ class Counter extends Component<Props> {
                 <FormControl>
                     <Input type="number" onChange={this.props.stepChanged} value={this.props.counter.step}/>
                 </FormControl>
-                <Button variant={'outlined'} color="primary" onClick={this.props.dec}>Dec</Button>
+                <Button variant={'contained'} color="primary" onClick={this.props.dec}>Dec</Button>
                 <Button variant={'outlined'} color="primary" onClick={this.props.inc}>Inc</Button>
                 <Button variant={'outlined'} color="primary" onClick={this.props.incAsync}>Inc Async</Button>
                 <div>

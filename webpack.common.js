@@ -1,21 +1,26 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const CleanWebpackPlugin =require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
     entry: ['@babel/polyfill', './app/index.jsx'],
     output: {
-        path: __dirname + '/public',
-        filename: './bundle.js'
-    },
-    devServer: {
-        port: 8080,
-        contentBase: './public',
-        hot: true
+        path: path.resolve(__dirname, 'public'),
+        filename: '[name].bundle.js',
+        chunkFilename: "[name].bundle.js"
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'app.css'
         }),
+        new CleanWebpackPlugin(['public']),
+        new HtmlWebpackPlugin({
+            title: 'Webpack',
+            template: './template.html',
+            name: "index.html"
+        })
     ],
     resolve: {
         extensions: ['.js', '.jsx']

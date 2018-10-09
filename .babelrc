@@ -10,5 +10,5 @@
         "syntax": "postcss-scss"
       }
     }
-  }], "@babel/plugin-transform-regenerator", "@babel/plugin-syntax-export-default-from", "@babel/plugin-proposal-class-properties"]
+  }], "@babel/plugin-transform-regenerator", "@babel/plugin-syntax-export-default-from", "@babel/plugin-proposal-class-properties", "@babel/plugin-syntax-dynamic-import"]
 }

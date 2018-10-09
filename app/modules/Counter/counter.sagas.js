@@ -1,7 +1,7 @@
 import { delay } from 'redux-saga';
 import { call, takeEvery, all, put } from 'redux-saga/effects';
-import {CoffeeShopApi} from '../api';
-import type {CoffeeShop} from "../api";
+import {CoffeeShopApi} from '../../api/index';
+import type {CoffeeShop} from "../../api/index";
 
 export function* incAsync() {
     try {
