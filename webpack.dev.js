@@ -11,7 +11,6 @@ module.exports = merge(common, {
     devServer: {
         port: 8080,
         contentBase: './public',
-        hot: true,
         historyApiFallback: true
     },
 });
