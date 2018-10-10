@@ -25,7 +25,6 @@ export default redux => {
                     state => ({[name]: mod.Selectors(state)}),
                     {...mod.Actions}
                 )(mod.Component);
-                console.log(redux.store);
                 const newMod = {...mod, Component: reduxComponent};
                 modules[name] = newMod;
                 return newMod;
