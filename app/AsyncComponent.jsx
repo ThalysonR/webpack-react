@@ -21,7 +21,6 @@ export default class AsyncComponent extends PureComponent<Props, State> {
         if(!this.state.Component) {
             this.props.moduleProvider().then( mod => this.setState({Component: mod.Component}));
         }
-        console.log("Will mount");
     }
 
     render() {

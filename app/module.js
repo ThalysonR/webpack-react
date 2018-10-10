@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 export type Module = {
     Component: any,
     Actions?: any,
-    Reducers?: any,
+    Reducer?: any,
     Selectors?: any,
     Sagas?: any
 };
@@ -18,8 +18,8 @@ export default redux => {
         }
         else {
             return moduleProvider.then(mod => {
-                registerReducer(redux.store, name, mod.Reducers);
-                redux.store.dispatch({type: 'RESET'});
+                registerReducer(redux.store, name, mod.Reducer);
+                redux.store.dispatch({type: 'UPDATE_STORE'});
                 redux.sagaMiddleware.run(mod.Sagas);
                 let reduxComponent = connect(
                     state => ({[name]: mod.Selectors(state)}),
