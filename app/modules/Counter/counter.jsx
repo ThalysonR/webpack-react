@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
 import './counter.styles.scss';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
@@ -12,7 +13,7 @@ type Props = {
     incAsync: Function,
     counter: { step: number, number: number }
 }
-export default class Counter extends Component<Props> {
+class Counter extends Component<Props> {
     render() {
         return (
             <div styleName="counter">
@@ -35,3 +36,5 @@ export default class Counter extends Component<Props> {
         )
     }
 }
+
+export default withRouter(Counter);

@@ -12,7 +12,7 @@ import {Provider} from 'react-redux';
 const register = module(redux);
 
 const Counter = () => register('counter', import(/* webpackChunkName: "Counter" */ './modules/Counter'));
-// const Form = () => import(/* webpackChunkName: "Form" */ './modules/Form');
+const Form = () => import(/* webpackChunkName: "Form" */ './modules/Form');
 
 ReactDOM.render(
     <Provider store={redux.store}>
@@ -22,6 +22,7 @@ ReactDOM.render(
                 <BrowserRouter>
                     <Switch>
                         <Route exact path={'/'} component={() => <AsyncComponent moduleProvider={Counter}/>}/>
+                        <Route exact path={'/form'} component={() => <AsyncComponent moduleProvider={Form}/>}/>
                     </Switch>
                 </BrowserRouter>
             </MuiThemeProvider>
