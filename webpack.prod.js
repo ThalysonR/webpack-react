@@ -19,10 +19,14 @@ module.exports = merge(common, {
     optimization: {
       splitChunks: {
           cacheGroups: {
+              default: {
+                  priority: 2
+              },
               vendor: {
                   test: /[\\/]node_modules[\\/]/,
                   name: 'vendors',
-                  chunks: 'all'
+                  chunks: 'all',
+                  priority: 1,
               }
           }
       }
