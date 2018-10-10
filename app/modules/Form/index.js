@@ -1,3 +1,3 @@
-import Form from './form';
+import Component from './form';
 
-export { Form };
+export { Component };

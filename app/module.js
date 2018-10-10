@@ -1,17 +1,34 @@
 import {registerReducer} from './store';
+import {connect} from 'react-redux';
 
-export default store => {
+export type Module = {
+    Component: any,
+    Actions?: any,
+    Reducers?: any,
+    Selectors?: any,
+    Sagas?: any
+};
+
+export default redux => {
     const modules = {};
 
-    return (name, moduleProvider) => {
+    return (name, moduleProvider: Promise<Module>) => {
         if(modules.hasOwnProperty(name)) {
             return Promise.resolve(modules[name]);
         }
         else {
             return moduleProvider.then(mod => {
-                modules[name] = mod;
-                registerReducer(store, name, mod.reducer);
-                return mod;
+                registerReducer(redux.store, name, mod.Reducers);
+                redux.store.dispatch({type: 'RESET'});
+                redux.sagaMiddleware.run(mod.Sagas);
+                let reduxComponent = connect(
+                    state => ({[name]: mod.Selectors(state)}),
+                    {...mod.Actions}
+                )(mod.Component);
+                console.log(redux.store);
+                const newMod = {...mod, Component: reduxComponent};
+                modules[name] = newMod;
+                return newMod;
             })
         }
     }

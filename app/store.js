@@ -1,7 +1,7 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import rootSagas from './sagas';
+// import rootSagas from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 export default (() => {
@@ -9,8 +9,8 @@ export default (() => {
         applyMiddleware(sagaMiddleware)
     ));
     store.async = {};
-    sagaMiddleware.run(rootSagas);
-    return store;
+    // sagaMiddleware.run();
+    return {store, sagaMiddleware};
 })();
 
 export function registerReducer(store, name, reducer) {
@@ -20,7 +20,7 @@ export function registerReducer(store, name, reducer) {
 
 function createReducer(reducers) {
     return combineReducers({
-        root: (state=null) => state,
+        root: (state = null) => state,
         ...reducers
     })
 }

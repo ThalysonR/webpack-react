@@ -1,8 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import * as actions from './counterActions';
-import {withRouter} from 'react-router-dom';
-import {getCounterState} from "./counter.selectors";
 import './counter.styles.scss';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
@@ -16,7 +12,7 @@ type Props = {
     incAsync: Function,
     counter: { step: number, number: number }
 }
-class Counter extends Component<Props> {
+export default class Counter extends Component<Props> {
     render() {
         return (
             <div styleName="counter">
@@ -39,8 +35,3 @@ class Counter extends Component<Props> {
         )
     }
 }
-
-export default connect(
-    state => ({counter: getCounterState(state)}),
-    {...actions}
-)(withRouter(Counter))
