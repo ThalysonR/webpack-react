@@ -9,6 +9,14 @@ export type Module = {
     Sagas?: any
 };
 
+const connectModuleWithRedux = (name: string, module: Module) => {
+    const reduxComponent = connect(
+        state => ({[name]: module.Selectors(state)}),
+        {...module.Actions}
+    )(module.Component);
+    return {...module, Component: reduxComponent};
+};
+
 export default redux => {
     const modules = {};
 
@@ -19,15 +27,10 @@ export default redux => {
         else {
             return moduleProvider.then(mod => {
                 registerReducer(redux.store, name, mod.Reducer);
-                redux.store.dispatch({type: 'UPDATE_STORE'});
                 redux.sagaMiddleware.run(mod.Sagas);
-                let reduxComponent = connect(
-                    state => ({[name]: mod.Selectors(state)}),
-                    {...mod.Actions}
-                )(mod.Component);
-                const newMod = {...mod, Component: reduxComponent};
-                modules[name] = newMod;
-                return newMod;
+                const connectedComp = connectModuleWithRedux(name, mod);
+                modules[name] = connectedComp;
+                return connectedComp;
             })
         }
     }

@@ -14,9 +14,7 @@
       "\\.(css|less)$": "<rootDir>/client/src/stylesheets/"
     },
     "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/legacy_notes_and_workbook/",
-      "<rootDir>/client/src/stylesheets/"
+      "<rootDir>/node_modules/"
     ]
   },
   "keywords": [],

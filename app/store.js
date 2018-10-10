@@ -1,7 +1,6 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import {composeWithDevTools} from 'redux-devtools-extension';
-// import rootSagas from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 export default (() => {
@@ -9,13 +8,13 @@ export default (() => {
         applyMiddleware(sagaMiddleware)
     ));
     store.async = {};
-    // sagaMiddleware.run();
     return {store, sagaMiddleware};
 })();
 
 export function registerReducer(store, name, reducer) {
     store.async[name] = reducer;
     store.replaceReducer(createReducer(store.async));
+    store.dispatch({ type: 'UPDATE_STORE'});
 }
 
 function createReducer(reducers) {
