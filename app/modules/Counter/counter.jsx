@@ -7,6 +7,10 @@ import FormControl from '@material-ui/core/FormControl';
 import SearchIcon from '@material-ui/icons/Search';
 import styles from './styles';
 
+type State = {
+  step: number,
+  number: number,
+}
 type Props = {
   history: Array<any>,
   classes: any,
@@ -14,7 +18,7 @@ type Props = {
   dec: Function,
   inc: Function,
   incAsync: Function,
-  counter: { step: number, number: number }
+  counter: State
 }
 function Counter(props: Props) {
   return (
