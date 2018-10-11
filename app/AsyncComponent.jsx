@@ -11,17 +11,10 @@ type State = {
 export default class AsyncComponent extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
-
     this.state = {
       Component: null,
     };
-  }
-
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillMount() {
-    if (!this.state.Component) {
-      this.props.moduleProvider().then(mod => this.setState({ Component: mod.Component }));
-    }
+    this.props.moduleProvider().then(mod => this.setState({ Component: mod.Component }));
   }
 
   render() {
