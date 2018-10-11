@@ -13,4 +13,13 @@ module.exports = merge(common, {
         contentBase: './public',
         historyApiFallback: true
     },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules|api/,
+                use: ['babel-loader', 'eslint-loader']
+            },
+        ]
+    }
 });

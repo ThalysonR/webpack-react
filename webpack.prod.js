@@ -37,6 +37,22 @@ module.exports = merge(common, {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
-
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules|api/,
+                use: [
+                    'babel-loader',
+                    {
+                        loader: 'eslint-loader',
+                        options: {
+                            failOnError: true
+                        }
+                    }
+                ]
+            },
+        ]
+    }
 });

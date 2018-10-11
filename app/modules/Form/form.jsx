@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Form extends Component {
-    render() {
-        return (
-            <h1>Form</h1>
-        )
-    }
+export default function Form() {
+  return (
+    <h1>Form</h1>
+  );
 }

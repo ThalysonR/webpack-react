@@ -1,10 +1,10 @@
-import {createSelector} from 'reselect';
+import { createSelector } from 'reselect';
 
 const getCounter = state => state.counter;
 
 const getState = createSelector(
-    [getCounter],
-    counter => counter
+  [getCounter],
+  counter => counter,
 );
 
 export default getState;
