@@ -16,21 +16,18 @@ type Props = {
   incAsync: Function,
   counter: { step: number, number: number }
 }
-
-function Counter({
-  classes, counter, stepChanged, dec, inc, incAsync, history,
-}: Props) {
+function Counter(props: Props) {
   return (
-    <div className={classes.counter}>
-      <h1>{counter.number}</h1>
+    <div className={props.classes.counter}>
+      <h1>{props.counter.number}</h1>
       <FormControl>
-        <Input type="number" onChange={stepChanged} value={counter.step}/>
+        <Input type="number" onChange={props.stepChanged} value={props.counter.step}/>
       </FormControl>
-      <Button variant={'contained'} color="primary" onClick={dec}>Dec</Button>
-      <Button variant={'outlined'} color="primary" onClick={inc}>Inc</Button>
-      <Button variant={'outlined'} color="primary" onClick={incAsync}>Inc Async</Button>
+      <Button variant={'contained'} color="primary" onClick={props.dec}>Dec</Button>
+      <Button variant={'outlined'} color="primary" onClick={props.inc}>Inc</Button>
+      <Button variant={'outlined'} color="primary" onClick={props.incAsync}>Inc Async</Button>
       <div>
-        <Button onClick={() => history.push('/form')} variant={'outlined'} color={'secondary'}>
+        <Button onClick={() => props.history.push('/form')} variant={'outlined'} color={'secondary'}>
           Form
         </Button>
         <Button size={'small'}>
