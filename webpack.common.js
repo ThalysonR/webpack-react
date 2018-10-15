@@ -28,6 +28,19 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
+        test: /\.js$/,
+        exclude: /node_modules|api/,
+        use: [
+          'babel-loader',
+          {
+            loader: 'eslint-loader',
+            options: {
+              failOnError: true,
+            },
+          },
+        ],
+      },
+      {
         test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
         loader: 'file-loader',
       },

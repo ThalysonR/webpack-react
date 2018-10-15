@@ -15,11 +15,6 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules|api/,
-        use: ['babel-loader', 'eslint-loader'],
-      },
-      {
         test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
         use: [

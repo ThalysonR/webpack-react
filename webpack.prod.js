@@ -46,19 +46,6 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules|api/,
-        use: [
-          'babel-loader',
-          {
-            loader: 'eslint-loader',
-            options: {
-              failOnError: true,
-            },
-          },
-        ],
-      },
-      {
         test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
         use: [
