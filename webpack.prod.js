@@ -1,5 +1,5 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
+const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const common = require('./webpack.common.js');
@@ -31,16 +31,18 @@ module.exports = merge(common, {
         },
       },
     },
+    mergeDuplicateChunks: true,
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[name].chunk.css',
     }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
+    new CompressionPlugin({
+      test: /\.(js|css)$/,
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      deleteOriginalAssets: true,
     }),
   ],
   module: {
