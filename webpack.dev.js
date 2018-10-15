@@ -1,5 +1,4 @@
 const merge = require('webpack-merge');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -15,9 +14,6 @@ module.exports = merge(common, {
     historyApiFallback: true,
     overlay: true,
   },
-  plugins: [
-    new DashboardPlugin(),
-  ],
   module: {
     rules: [
       {

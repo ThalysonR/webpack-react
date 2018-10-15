@@ -42,7 +42,6 @@ module.exports = merge(common, {
       test: /\.(js|css)$/,
       filename: '[path].gz[query]',
       algorithm: 'gzip',
-      deleteOriginalAssets: true,
     }),
   ],
   module: {

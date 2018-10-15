@@ -1,5 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -16,6 +17,7 @@ module.exports = {
       template: './template.html',
       name: 'index.html',
     }),
+    new DashboardPlugin(),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],

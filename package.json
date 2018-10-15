@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --progress --hot",
-    "dashboard": "webpack-dashboard -- webpack-dev-server --config webpack.dev.js --quiet --hot",
     "build": "webpack --config webpack.prod.js",
+    "dashboard-dev": "webpack-dashboard -- webpack-dev-server --config webpack.dev.js --quiet --hot",
+    "dashboard-build": "webpack-dashboard -- webpack --config webpack.prod.js --quiet",
     "test": "jest"
   },
   "jest": {
@@ -58,7 +59,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "@material-ui/core": "^3.1.1",
+    "@material-ui/core": "^3.2.1",
     "@material-ui/icons": "^3.0.1",
     "babel-plugin-react-css-modules": "^3.4.2",
     "clean-webpack-plugin": "^0.1.19",
