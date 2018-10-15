@@ -1,4 +1,5 @@
 const merge = require('webpack-merge');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -9,9 +10,14 @@ module.exports = merge(common, {
   },
   devServer: {
     port: 8080,
+    host: '127.0.0.1',
     contentBase: './public',
     historyApiFallback: true,
+    overlay: true,
   },
+  plugins: [
+    new DashboardPlugin(),
+  ],
   module: {
     rules: [
       {

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --progress --hot",
+    "dashboard": "webpack-dashboard -- webpack-dev-server --config webpack.dev.js --quiet --hot",
     "build": "webpack --config webpack.prod.js",
     "test": "jest"
   },
@@ -78,6 +79,7 @@
     "reselect": "^4.0.0",
     "typeface-roboto": "0.0.54",
     "webpack": "^4.19.1",
+    "webpack-dashboard": "^2.0.0",
     "webpack-merge": "^4.1.4"
   }
 }
