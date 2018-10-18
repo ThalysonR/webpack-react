@@ -14,7 +14,7 @@ export default class AsyncComponent extends PureComponent<Props, State> {
     this.state = {
       Component: null,
     };
-    this.props.moduleProvider().then(mod => this.setState({ Component: mod.Component }));
+    props.moduleProvider().then(mod => this.setState({ Component: mod.Component }));
   }
 
   render() {
@@ -22,7 +22,7 @@ export default class AsyncComponent extends PureComponent<Props, State> {
 
     return (
       <div>
-        {Component ? <Component/> : <Loading/>}
+        {Component ? <Component /> : <Loading />}
       </div>
     );
   }

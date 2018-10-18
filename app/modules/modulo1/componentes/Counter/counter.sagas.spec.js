@@ -1,7 +1,7 @@
 import { delay } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { incAsync } from './counter.sagas';
-import { CoffeeShopApi } from '../../api/index';
+import { CoffeeShopApi } from '../../../../api/index';
 
 test('incrementAsync Saga test', () => {
   const gen = incAsync();
