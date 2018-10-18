@@ -18,10 +18,13 @@ type Props = {
 }
 function Component({ path }: Props) {
   return (
-    <Switch>
-      <Route exact path={`${path}/counter`} component={Counter} />
-      <Route path={`${path}/`} component={Teste} />
-    </Switch>
+    <div>
+      <h1>Modulo 1</h1>
+      <Switch>
+        <Route exact path={`${path}/counter`} component={Counter} />
+        <Route path={`${path}/`} component={Teste} />
+      </Switch>
+    </div>
   );
 }
 
