@@ -1,18 +1,17 @@
-export function inc() {
-  return { type: 'INC' };
-}
-
-export function dec() {
-  return { type: 'DEC' };
-}
-
-export function incAsync() {
-  return { type: 'INC_ASYNC' };
-}
-
-export function stepChanged(e) {
-  return {
-    type: 'STEP_CHANGED',
-    payload: e.target.value,
-  };
-}
+export default {
+  inc() {
+    return { type: 'INC' };
+  },
+  dec() {
+    return { type: 'DEC' };
+  },
+  incAsync() {
+    return { type: 'INC_ASYNC' };
+  },
+  stepChanged(e) {
+    return {
+      type: 'STEP_CHANGED',
+      payload: e.target.value,
+    };
+  },
+};

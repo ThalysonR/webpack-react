@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -6,9 +7,11 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import SearchIcon from '@material-ui/icons/Search';
 import styles from './styles';
+import Actions from './counter.actions';
+import { Selectors, store } from './index';
 
 type State = {
-  step: number,
+step: number,
   number: number,
 }
 type Props = {
@@ -20,26 +23,36 @@ type Props = {
   incAsync: Function,
   counter: State
 }
-function Counter(props: Props) {
+
+function Counter({
+  classes, counter, stepChanged, dec, inc, incAsync, history,
+}: Props) {
   return (
-    <div className={props.classes.counter}>
-      <h1>{props.counter.number}</h1>
+    <div className={classes.counter}>
+      <h1>{counter.number}</h1>
       <FormControl>
-        <Input type="number" onChange={props.stepChanged} value={props.counter.step}/>
+        <Input type="number" onChange={stepChanged} value={counter.step} />
       </FormControl>
-      <Button variant={'contained'} color="primary" onClick={props.dec}>Dec</Button>
-      <Button variant={'outlined'} color="primary" onClick={props.inc}>Inc</Button>
-      <Button variant={'outlined'} color="primary" onClick={props.incAsync}>Inc Async</Button>
+      <Button variant="contained" color="primary" onClick={dec}>Dec</Button>
+      <Button variant="outlined" color="primary" onClick={inc}>Inc</Button>
+      <Button variant="outlined" color="primary" onClick={incAsync}>Inc Async</Button>
       <div>
-        <Button onClick={() => props.history.push('/form')} variant={'outlined'} color={'secondary'}>
+        <Button onClick={() => history.push('/modulo1/form')} variant="outlined" color="secondary">
           Form
         </Button>
-        <Button size={'small'}>
-          <SearchIcon/>
+        <Button size="small">
+          <SearchIcon />
         </Button>
       </div>
     </div>
   );
 }
 
-export default withStyles(styles)(withRouter(Counter));
+export default [Counter]
+  .map(comp => withStyles(styles)(comp))
+  .map(styledComp => withRouter(styledComp))
+  .map(routerComp => connect(
+    state => ({ [store]: Selectors(state) }),
+    { ...Actions },
+  )(routerComp))
+  .shift();

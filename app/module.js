@@ -1,4 +1,3 @@
-import { connect } from 'react-redux';
 import { registerReducer } from './store';
 
 type Module = {
@@ -11,20 +10,6 @@ type Redux = {
   store: any,
   sagaMiddleware?: any,
 };
-
-type ReduxComponent = {
-  Actions: any,
-  Component: any,
-  Selectors: any,
-  store: string,
-}
-
-export function connectComponentWithRedux(reduxComponent: ReduxComponent) {
-  return connect(
-    state => ({ [reduxComponent.store]: reduxComponent.Selectors(state) }),
-    { ...reduxComponent.Actions },
-  )(reduxComponent.Component);
-}
 
 export default ({ store, sagaMiddleware }: Redux) => {
   const modules = {};
