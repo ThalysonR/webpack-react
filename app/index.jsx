@@ -11,7 +11,7 @@ import module from './module';
 import AsyncRoute from './AsyncRoute';
 
 const register = module(redux);
-const modulo1 = () => register('modulo1', import('./modules/modulo1'));
+const modulo1 = () => register('modulo1', import(/* webpackChunkName: "modulo1" */'./modules/modulo1'));
 
 ReactDOM.render(
   <Provider store={redux.store}>
