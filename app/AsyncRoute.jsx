@@ -10,11 +10,12 @@ type State = {
   Component: any
 }
 export default class AsyncRoute extends PureComponent<Props, State> {
+  state = {
+    Component: null,
+  };
+
   constructor(props) {
     super(props);
-    this.state = {
-      Component: null,
-    };
     props.moduleProvider().then(mod => this.setState({ Component: mod.Component }));
   }
 
@@ -29,7 +30,3 @@ export default class AsyncRoute extends PureComponent<Props, State> {
     );
   }
 }
-
-AsyncRoute.defaultProps = {
-  match: null,
-};
