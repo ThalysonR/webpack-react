@@ -8,7 +8,8 @@ import { Component as Counter } from './componentes/Counter';
 
 const Teste = () => (
   <div>
-    Oi<br/>
+    Oi
+    <br />
     <Link to="/modulo1/counter">Counter</Link>
   </div>
 );
@@ -20,7 +21,7 @@ type Props = {
 function Component({ path }: Props) {
   return (
     <div>
-      <Typography component="h2" variant="h1" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         Modulo 1
       </Typography>
       <Switch>
