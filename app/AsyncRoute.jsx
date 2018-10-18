@@ -1,17 +1,15 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 
 const Loading = () => <div>Carregando...</div>;
 
 type Props = {
   moduleProvider: Promise,
-  match?: any,
+  path: string,
 }
 type State = {
   Component: any
 }
-
-
-export default class AsyncComponent extends PureComponent<Props, State> {
+export default class AsyncRoute extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,16 +20,16 @@ export default class AsyncComponent extends PureComponent<Props, State> {
 
   render() {
     const { Component } = this.state;
-    const { match } = this.props;
+    const { path } = this.props;
 
     return (
-      <div>
-        {Component ? <Component match={match} /> : <Loading />}
-      </div>
+      <Fragment>
+        {Component ? <Component path={path} /> : <Loading />}
+      </Fragment>
     );
   }
 }
 
-AsyncComponent.defaultProps = {
+AsyncRoute.defaultProps = {
   match: null,
 };
