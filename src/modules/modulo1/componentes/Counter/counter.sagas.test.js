@@ -1,13 +1,11 @@
 import { delay } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { incAsync } from './counter.sagas';
-import { CoffeeShopApi } from '../../../../api/index';
 
 test('incrementAsync Saga test', () => {
   const gen = incAsync();
 
   expect(gen.next().value).toEqual(call(delay, 100));
-  expect(JSON.stringify(gen.next().value)).toEqual(JSON.stringify(call(CoffeeShopApi().coffeeShopFind)));
   expect(gen.next().value).toEqual(put({ type: 'INC' }));
   expect(gen.next()).toEqual({ done: true, value: undefined });
 });

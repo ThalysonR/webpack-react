@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import Typography from '@material-ui/core/Typography';
 import Reducers from './modulo1.reducers';
 import Sagas from './modulo1.sagas';
 import { Component as Form } from './componentes/Form';
@@ -21,9 +20,9 @@ type Props = {
 function Component({ path }: Props) {
   return (
     <div>
-      <Typography variant="h4" gutterBottom>
+      <h1>
         Modulo 1
-      </Typography>
+      </h1>
       <Switch>
         <Route exact path={`${path}/counter`} component={Counter} />
         <Route exact path={`${path}/form`} component={Form} />
@@ -33,4 +32,6 @@ function Component({ path }: Props) {
   );
 }
 
-export { Component, Reducers, Sagas };
+export {
+  Component, Reducers, Sagas,
+};
