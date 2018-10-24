@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 
 const Loading = () => <div>Carregando...</div>;
-const Erro = () => <div>Erro no carregamento</div>;
+// const Erro = () => <div>Erro no carregamento</div>;
 
 type Props = {
   moduleProvider: Promise,
@@ -18,8 +18,7 @@ export default class AsyncRoute extends PureComponent<Props, State> {
   constructor(props) {
     super(props);
     props.moduleProvider()
-      .then(mod => this.setState({ Component: mod.Component }))
-      .catch(() => this.setState({ Component: Erro }));
+      .then(mod => this.setState({ Component: mod.Component }));
   }
 
   render() {
