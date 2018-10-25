@@ -7,11 +7,11 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import SearchIcon from '@material-ui/icons/Search';
 import styles from './styles';
-import Actions from './counter.actions';
+import * as Actions from './counter.actions';
 import { Selectors, store } from './index';
 
 type State = {
-step: number,
+  step: number,
   number: number,
 }
 type Props = {

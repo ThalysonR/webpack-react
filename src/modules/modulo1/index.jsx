@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import Reducers from './modulo1.reducers';
-import Sagas from './modulo1.sagas';
 import Epics from './modulo1.epics';
 import { Component as Form } from './componentes/Form';
 import { Component as Counter } from './componentes/Counter';
@@ -34,5 +33,5 @@ function Component({ path }: Props) {
 }
 
 export {
-  Component, Reducers, Sagas, Epics,
+  Component, Reducers, Epics,
 };

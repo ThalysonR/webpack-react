@@ -9,11 +9,10 @@ type Module = {
 
 type Redux = {
   store: any,
-  sagaMiddleware?: any,
   epicMiddleware?: any,
 };
 
-export default ({ store, sagaMiddleware, epicMiddleware }: Redux) => {
+export default ({ store, epicMiddleware }: Redux) => {
   const modules = {};
 
   return (name: string, moduleProvider: Promise<Module>) => {
@@ -22,7 +21,6 @@ export default ({ store, sagaMiddleware, epicMiddleware }: Redux) => {
     }
     return moduleProvider.then((mod: Module) => {
       registerReducer(store, name, mod.Reducers);
-      sagaMiddleware.run(mod.Sagas);
       epicMiddleware.run(mod.Epics);
       return mod;
     });
