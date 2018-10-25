@@ -23,7 +23,6 @@ module.exports = merge(common, {
   devtool: 'cheap-module-source-map',
   entry: [
     require.resolve('react-dev-utils/webpackHotDevClient'),
-    '@babel/polyfill',
     paths.appIndexJs,
   ],
   output: {
@@ -39,6 +38,7 @@ module.exports = merge(common, {
       { parser: { requireEnsure: false } },
       {
         test: /\.(js|mjs|jsx)$/,
+        exclude: /api/,
         enforce: 'pre',
         use: [
           {

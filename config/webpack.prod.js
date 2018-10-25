@@ -38,7 +38,7 @@ module.exports = merge(common, {
   mode: 'production',
   bail: true,
   devtool: shouldUseSourceMap ? 'source-map' : false,
-  entry: ['@babel/polyfill', paths.appIndexJs],
+  entry: [paths.appIndexJs],
   output: {
     path: paths.appBuild,
     filename: 'static/js/[name].[chunkhash:8].js',

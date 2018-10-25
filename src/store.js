@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { CoffeeShopApi } from './api';
 
 function createReducer(reducers) {
   return combineReducers({
@@ -9,7 +10,13 @@ function createReducer(reducers) {
   });
 }
 
-const epicMiddleware = createEpicMiddleware();
+const dependencias = {
+  CoffeeShopApi: CoffeeShopApi(),
+};
+
+const epicMiddleware = createEpicMiddleware({
+  dependencies: dependencias,
+});
 export default (() => {
   const store = createStore(createReducer(), composeWithDevTools(
     applyMiddleware(epicMiddleware),
